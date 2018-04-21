@@ -7,6 +7,7 @@ public class Car : MonoBehaviour
     [SerializeField] private float _speed = 1000f;
     [SerializeField] private float _rotationSpeed = 80f;
     [SerializeField] private Transform[] _wheels;
+    [SerializeField] private Transform _saw;
 
     private Rigidbody _rigidbody;
     private Vector3 _velocity;
@@ -64,5 +65,10 @@ public class Car : MonoBehaviour
     {
         _fuel += amount;
         _fuel = Mathf.Clamp(_fuel, 0, MaxFuel);
+    }
+    
+    public void AddSaw()
+    {
+        _saw.gameObject.SetActive(true);
     }
 }
