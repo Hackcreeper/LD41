@@ -12,8 +12,8 @@ public class Level : MonoBehaviour
 
     private void Update()
     {
-        var cx = Mathf.FloorToInt(_player.position.x / _chunkScale);
-        var cz = Mathf.FloorToInt(_player.position.z / _chunkScale);
+        var cx = Mathf.RoundToInt(_player.position.x / _chunkScale);
+        var cz = Mathf.RoundToInt(_player.position.z / _chunkScale);
 
         if (_currentX != cx || _currentZ != cz)
         {
