@@ -3,24 +3,36 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    public static Level Instance;
+
     [SerializeField] private Transform _player;
     [SerializeField] private GameObject _chunkPrefab;
+    [SerializeField] private GameObject _treePrefab;
+    [SerializeField] private GameObject _stonePrefab;
     [SerializeField] private int _chunkScale = 32;
 
     private int _currentX = -1, _currentZ = -1;
     private Dictionary<string, GameObject> _chunks = new Dictionary<string, GameObject>();
+    private List<string> _whitelisted = new List<string>();
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Update()
     {
-        var cx = Mathf.FloorToInt(_player.position.x / _chunkScale);
-        var cz = Mathf.FloorToInt(_player.position.z / _chunkScale);
+        var cx = Mathf.RoundToInt(_player.position.x / _chunkScale);
+        var cz = Mathf.RoundToInt(_player.position.z / _chunkScale);
 
         if (_currentX != cx || _currentZ != cz)
         {
             _currentX = cx;
             _currentZ = cz;
 
+            _whitelisted.Clear();
             GenerateChunks();
+            RemoveOldChunks();
         }
     }
 
@@ -39,14 +51,68 @@ public class Level : MonoBehaviour
 
     private void Generate(int x, int z)
     {
+        _whitelisted.Add($"{x}_{z}");
         if (_chunks.ContainsKey($"{x}_{z}"))
         {
             return;
         }
         
-        var chunk = Instantiate(_chunkPrefab, new Vector3(x*_chunkScale, -1, z*_chunkScale), Quaternion.identity);
-        chunk.transform.localScale = new Vector3(_chunkScale, 1, _chunkScale);
+        var chunk = Instantiate(_chunkPrefab, new Vector3(x * _chunkScale, -1, z * _chunkScale), Quaternion.identity);
+        chunk.transform.Find("GFX").localScale = new Vector3(_chunkScale/2f, _chunkScale/2f, 0.1f);
         chunk.transform.SetParent(transform);
         _chunks.Add($"{x}_{z}", chunk);
+
+        PlaceTrees(chunk);
+        PlaceStones(chunk);
     }
+
+    private void RemoveOldChunks()
+    {
+        var toRemove = new List<string>();
+        foreach (var keyValuePair in _chunks)
+        {
+            if (!_whitelisted.Contains(keyValuePair.Key))
+            {
+                toRemove.Add(keyValuePair.Key);
+            }
+        }
+
+        toRemove.ForEach(key =>
+        {
+            Destroy(_chunks[key]);
+            _chunks.Remove(key);
+        });
+    }
+
+    private void PlaceTrees(GameObject chunk)
+    {
+        var amount = Random.Range(10, 40);
+        for (var i = 0; i < amount; i++)
+        {
+            var tree = Instantiate(_treePrefab);
+            tree.transform.SetParent(chunk.transform);
+            tree.transform.localPosition = new Vector3(
+                Random.Range(0, _chunkScale),
+                2,
+                Random.Range(0, _chunkScale)
+            );
+        }
+    }
+    
+    private void PlaceStones(GameObject chunk)
+    {
+        var amount = Random.Range(5, 30);
+        for (var i = 0; i < amount; i++)
+        {
+            var tree = Instantiate(_stonePrefab);
+            tree.transform.SetParent(chunk.transform);
+            tree.transform.localPosition = new Vector3(
+                Random.Range(0, _chunkScale),
+                0,
+                Random.Range(0, _chunkScale)
+            );
+        }
+    }
+
+    public Transform GetPlayer() => _player;
 }
