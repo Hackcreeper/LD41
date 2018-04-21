@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    public static Level Instance;
+
     [SerializeField] private Transform _player;
     [SerializeField] private GameObject _chunkPrefab;
     [SerializeField] private GameObject _treePrefab;
@@ -10,6 +12,11 @@ public class Level : MonoBehaviour
 
     private int _currentX = -1, _currentZ = -1;
     private Dictionary<string, GameObject> _chunks = new Dictionary<string, GameObject>();
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Update()
     {
@@ -67,4 +74,6 @@ public class Level : MonoBehaviour
             );
         }
     }
+
+    public Transform GetPlayer() => _player;
 }
