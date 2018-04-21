@@ -417,6 +417,10 @@ MonoBehaviour:
     type: 2}
   _stonePrefab: {fileID: 1760832739423186, guid: b02d5a539973d4c92be4da5e8dd28347,
     type: 2}
+  _canisterPrefab: {fileID: 1387779973322856, guid: f1d9d32cb49374b22a94914a3ebf6ef4,
+    type: 2}
+  _rampPrefab: {fileID: 1011335301157236, guid: f4f5340fbfe6e49259ba29fb68b5330e,
+    type: 2}
   _chunkScale: 85
 --- !u!4 &191634804
 Transform:
@@ -1534,7 +1538,7 @@ GameObject:
   - component: {fileID: 1340656634}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

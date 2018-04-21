@@ -59,4 +59,10 @@ public class Car : MonoBehaviour
 
     public float GetFuel() => _fuel;
     public float GetPower() => _power;
+
+    public void Refuel(int amount = 16)
+    {
+        _fuel += amount;
+        _fuel = Mathf.Clamp(_fuel, 0, MaxFuel);
+    }
 }
