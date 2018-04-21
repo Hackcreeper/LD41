@@ -79,6 +79,7 @@ public class ZombieManager : MonoBehaviour
     {
         _zombies.Remove(zombie);
         zombie.GetComponent<Zombie>().Kill();
+        Score.Instance.Increase();
     }
 
     public void GameOver()
