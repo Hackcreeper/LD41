@@ -114,6 +114,59 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &65213004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 65213005}
+  - component: {fileID: 65213006}
+  - component: {fileID: 65213007}
+  m_Layer: 9
+  m_Name: KillZone_Back
+  m_TagString: Killzone
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &65213005
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 65213004}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.942}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1340656637}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65213006
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 65213004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 0.9, z: 0.3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &65213007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 65213004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6b7db4448ce4782bee6974d1225d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &190545505
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +178,7 @@ GameObject:
   - component: {fileID: 190545508}
   - component: {fileID: 190545507}
   - component: {fileID: 190545506}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -243,6 +296,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &236442844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 236442845}
+  - component: {fileID: 236442846}
+  - component: {fileID: 236442847}
+  m_Layer: 9
+  m_Name: KillZone_Front
+  m_TagString: Killzone
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &236442845
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 236442844}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.947}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1340656637}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &236442846
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 236442844}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 0.9, z: 0.3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &236442847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 236442844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6b7db4448ce4782bee6974d1225d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &257013502
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +359,7 @@ GameObject:
   - component: {fileID: 257013503}
   - component: {fileID: 257013505}
   - component: {fileID: 257013504}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wheel_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +430,7 @@ GameObject:
   - component: {fileID: 706680142}
   - component: {fileID: 706680144}
   - component: {fileID: 706680143}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +501,7 @@ GameObject:
   - component: {fileID: 775610724}
   - component: {fileID: 775610726}
   - component: {fileID: 775610725}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wheel_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,6 +633,9 @@ MonoBehaviour:
   _player: {fileID: 1340656637}
   _zombiePrefab: {fileID: 1395512913168028, guid: 096c88ad737454cc5b46e26aee0e6f44,
     type: 2}
+  _maxZombies: 200
+  _spawnPerSecond: 20
+  _spawnRadius: 35
 --- !u!1 &982617038
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +646,7 @@ GameObject:
   - component: {fileID: 982617039}
   - component: {fileID: 982617041}
   - component: {fileID: 982617040}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wheel_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +717,7 @@ GameObject:
   - component: {fileID: 1263460866}
   - component: {fileID: 1263460868}
   - component: {fileID: 1263460867}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wheel_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,7 +854,7 @@ GameObject:
   - component: {fileID: 1340656639}
   - component: {fileID: 1340656635}
   - component: {fileID: 1340656634}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -795,6 +904,8 @@ Transform:
   - {fileID: 257013503}
   - {fileID: 775610724}
   - {fileID: 982617039}
+  - {fileID: 236442845}
+  - {fileID: 65213005}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
