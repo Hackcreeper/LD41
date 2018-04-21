@@ -17,19 +17,17 @@ public class Car : MonoBehaviour
 
     private void Update()
     {
-        _velocity = transform.forward * (Input.GetAxis("Vertical") * _speed);
+        var power = Input.GetAxis("Vertical") * _speed;
+        _velocity = transform.forward * power;
 
-        if (_velocity.magnitude > 0f)
+        if (_velocity.magnitude <= 0f) return;
+
+        var f = power >= 0 ? 1 : -1;
+        transform.Rotate(0, Input.GetAxis("Horizontal") * _rotationSpeed * Time.deltaTime * f, 0);
+
+        foreach (var wheel in _wheels)
         {
-            var rotation = new Vector3(0,
-                transform.localEulerAngles.y + Input.GetAxis("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
-            transform.localEulerAngles = rotation;
-
-            // Rotate the wheels
-            foreach (var wheel in _wheels)
-            {
-                wheel.transform.Rotate(new Vector3(0, 1, 0), _velocity.normalized.magnitude * 10);
-            }
+            wheel.transform.Rotate(new Vector3(0, 1, 0), _velocity.normalized.magnitude * 10);
         }
     }
 
