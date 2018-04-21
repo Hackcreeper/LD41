@@ -2,13 +2,15 @@
 
 public class Car : MonoBehaviour
 {
+    public const float MaxFuel = 80f;
+
     [SerializeField] private float _speed = 1000f;
     [SerializeField] private float _rotationSpeed = 80f;
-
     [SerializeField] private Transform[] _wheels;
 
     private Rigidbody _rigidbody;
     private Vector3 _velocity;
+    private float _fuel = MaxFuel;
 
     private void Awake()
     {
@@ -21,6 +23,8 @@ public class Car : MonoBehaviour
         _velocity = transform.forward * power;
 
         if (_velocity.magnitude <= 0f) return;
+
+        _fuel -= Time.deltaTime;
 
         var f = power >= 0 ? 1 : -1;
         transform.Rotate(0, Input.GetAxis("Horizontal") * _rotationSpeed * Time.deltaTime * f, 0);
@@ -39,4 +43,6 @@ public class Car : MonoBehaviour
             _velocity.z * Time.fixedDeltaTime
         );
     }
+
+    public float GetFuel() => _fuel;
 }
