@@ -33,6 +33,10 @@ public class Car : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.velocity = _velocity * Time.fixedDeltaTime;
+        _rigidbody.velocity = new Vector3(
+            _velocity.x * Time.fixedDeltaTime,
+            _rigidbody.velocity.y,
+            _velocity.z * Time.fixedDeltaTime
+        );
     }
 }

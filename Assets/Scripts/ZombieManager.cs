@@ -6,7 +6,7 @@ public class ZombieManager : MonoBehaviour
     [SerializeField] private Transform _player;
     [SerializeField] private GameObject _zombiePrefab;
     private int _maxZombies = 200;
-    private int _spawnPerSecond = 10;
+    private int _spawnPerSecond = 20;
     private int _spawnRadius = 35;
 
     private readonly List<Transform> _zombies = new List<Transform>();
