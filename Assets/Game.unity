@@ -227,6 +227,8 @@ MonoBehaviour:
     type: 2}
   _treePrefab: {fileID: 1830830017626952, guid: 001152ddd2ac6414fb2a0ad01bb4e4db,
     type: 2}
+  _stonePrefab: {fileID: 1830830017626952, guid: b02d5a539973d4c92be4da5e8dd28347,
+    type: 2}
   _chunkScale: 85
 --- !u!4 &191634804
 Transform:

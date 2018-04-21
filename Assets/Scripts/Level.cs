@@ -8,6 +8,7 @@ public class Level : MonoBehaviour
     [SerializeField] private Transform _player;
     [SerializeField] private GameObject _chunkPrefab;
     [SerializeField] private GameObject _treePrefab;
+    [SerializeField] private GameObject _stonePrefab;
     [SerializeField] private int _chunkScale = 32;
 
     private int _currentX = -1, _currentZ = -1;
@@ -62,6 +63,7 @@ public class Level : MonoBehaviour
         _chunks.Add($"{x}_{z}", chunk);
 
         PlaceTrees(chunk);
+        PlaceStones(chunk);
     }
 
     private void RemoveOldChunks()
@@ -92,6 +94,21 @@ public class Level : MonoBehaviour
             tree.transform.localPosition = new Vector3(
                 Random.Range(0, _chunkScale),
                 2,
+                Random.Range(0, _chunkScale)
+            );
+        }
+    }
+    
+    private void PlaceStones(GameObject chunk)
+    {
+        var amount = Random.Range(5, 30);
+        for (var i = 0; i < amount; i++)
+        {
+            var tree = Instantiate(_stonePrefab);
+            tree.transform.SetParent(chunk.transform);
+            tree.transform.localPosition = new Vector3(
+                Random.Range(0, _chunkScale),
+                0,
                 Random.Range(0, _chunkScale)
             );
         }
