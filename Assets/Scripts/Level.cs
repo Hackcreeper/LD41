@@ -62,8 +62,8 @@ public class Level : MonoBehaviour
         chunk.transform.SetParent(transform);
         _chunks.Add($"{x}_{z}", chunk);
 
-        PlaceObjects(10, 40, _treePrefab, chunk);
-        PlaceObjects(5, 30, _stonePrefab, chunk);
+        PlaceObjects(3, 20, _treePrefab, chunk);
+        PlaceObjects(1, 10, _stonePrefab, chunk);
     }
 
     private void RemoveOldChunks()
