@@ -11,6 +11,7 @@ public class Car : MonoBehaviour
     private Rigidbody _rigidbody;
     private Vector3 _velocity;
     private float _fuel = MaxFuel;
+    private float _power;
 
     private void Awake()
     {
@@ -19,14 +20,14 @@ public class Car : MonoBehaviour
 
     private void Update()
     {
-        var power = Input.GetAxis("Vertical") * _speed;
-        _velocity = transform.forward * power;
+        _power = Input.GetAxis("Vertical") * _speed;
+        _velocity = transform.forward * _power;
 
         if (_velocity.magnitude <= 0f) return;
 
         _fuel -= Time.deltaTime;
 
-        var f = power >= 0 ? 1 : -1;
+        var f = _power >= 0 ? 1 : -1;
         transform.Rotate(0, Input.GetAxis("Horizontal") * _rotationSpeed * Time.deltaTime * f, 0);
 
         foreach (var wheel in _wheels)
@@ -45,4 +46,5 @@ public class Car : MonoBehaviour
     }
 
     public float GetFuel() => _fuel;
+    public float GetPower() => _power;
 }

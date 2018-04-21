@@ -20,7 +20,7 @@ namespace UI
         {
             var percentage = Mathf.RoundToInt(100f / Car.MaxFuel * _player.GetFuel());
             _text.text = $"{percentage}% Fuel";
-
+    
             _bar.sizeDelta = new Vector2(
                 _maxWidth / 100f * percentage,
                 _bar.sizeDelta.y
