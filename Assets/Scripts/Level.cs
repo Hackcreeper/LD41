@@ -62,8 +62,8 @@ public class Level : MonoBehaviour
         chunk.transform.SetParent(transform);
         _chunks.Add($"{x}_{z}", chunk);
 
-        PlaceTrees(chunk);
-        PlaceStones(chunk);
+        PlaceObjects(10, 40, _treePrefab, chunk);
+        PlaceObjects(5, 30, _stonePrefab, chunk);
     }
 
     private void RemoveOldChunks()
@@ -84,12 +84,12 @@ public class Level : MonoBehaviour
         });
     }
 
-    private void PlaceTrees(GameObject chunk)
+    private void PlaceObjects(int min, int max, GameObject prefab, GameObject chunk)
     {
-        var amount = Random.Range(10, 40);
+        var amount = Random.Range(min, max);
         for (var i = 0; i < amount; i++)
         {
-            var tree = Instantiate(_treePrefab);
+            var tree = Instantiate(prefab);
             tree.transform.SetParent(chunk.transform);
             tree.transform.localPosition = new Vector3(
                 Random.Range(0, _chunkScale),
@@ -99,20 +99,5 @@ public class Level : MonoBehaviour
         }
     }
     
-    private void PlaceStones(GameObject chunk)
-    {
-        var amount = Random.Range(5, 30);
-        for (var i = 0; i < amount; i++)
-        {
-            var tree = Instantiate(_stonePrefab);
-            tree.transform.SetParent(chunk.transform);
-            tree.transform.localPosition = new Vector3(
-                Random.Range(0, _chunkScale),
-                0,
-                Random.Range(0, _chunkScale)
-            );
-        }
-    }
-
     public Transform GetPlayer() => _player;
 }
