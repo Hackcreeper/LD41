@@ -41,6 +41,11 @@ public class Car : MonoBehaviour
         {
             wheel.transform.Rotate(new Vector3(0, 1, 0), _velocity.normalized.magnitude * 10);
         }
+
+        if (_fuel <= 0f)
+        {
+            ZombieManager.Instance.GameOver();
+        }
     }
 
     private void FixedUpdate()

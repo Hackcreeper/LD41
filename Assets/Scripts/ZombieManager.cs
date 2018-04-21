@@ -13,8 +13,7 @@ public class ZombieManager : MonoBehaviour
 
     private readonly List<Transform> _zombies = new List<Transform>();
     private float _timer = 3f;
-
-    private bool _gameOver = false;
+    private bool _gameOver;
 
     private void Awake()
     {
@@ -29,7 +28,6 @@ public class ZombieManager : MonoBehaviour
         }
 
         if (_gameOver) return;
-        return;
         SpawnZombies();
         RemoveOldZombies();
     }
