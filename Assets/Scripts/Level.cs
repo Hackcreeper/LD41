@@ -5,6 +5,7 @@ public class Level : MonoBehaviour
 {
     [SerializeField] private Transform _player;
     [SerializeField] private GameObject _chunkPrefab;
+    [SerializeField] private GameObject _treePrefab;
     [SerializeField] private int _chunkScale = 32;
 
     private int _currentX = -1, _currentZ = -1;
@@ -43,10 +44,27 @@ public class Level : MonoBehaviour
         {
             return;
         }
-        
-        var chunk = Instantiate(_chunkPrefab, new Vector3(x*_chunkScale, -1, z*_chunkScale), Quaternion.identity);
-        chunk.transform.localScale = new Vector3(_chunkScale, 1, _chunkScale);
+
+        var chunk = Instantiate(_chunkPrefab, new Vector3(x * _chunkScale, -1, z * _chunkScale), Quaternion.identity);
+        chunk.transform.Find("GFX").localScale = new Vector3(_chunkScale, 1, _chunkScale);
         chunk.transform.SetParent(transform);
         _chunks.Add($"{x}_{z}", chunk);
+
+        PlaceTrees(chunk);
+    }
+
+    private void PlaceTrees(GameObject chunk)
+    {
+        var amount = Random.Range(10, 40);
+        for (var i = 0; i < amount; i++)
+        {
+            var tree = Instantiate(_treePrefab);
+            tree.transform.SetParent(chunk.transform);
+            tree.transform.localPosition = new Vector3(
+                Random.Range(0, _chunkScale),
+                2,
+                Random.Range(0, _chunkScale)
+            );
+        }
     }
 }
