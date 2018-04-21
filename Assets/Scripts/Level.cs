@@ -93,7 +93,7 @@ public class Level : MonoBehaviour
             tree.transform.SetParent(chunk.transform);
             tree.transform.localPosition = new Vector3(
                 Random.Range(0, _chunkScale),
-                2,
+                0,
                 Random.Range(0, _chunkScale)
             );
         }

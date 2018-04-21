@@ -225,7 +225,7 @@ MonoBehaviour:
   _player: {fileID: 1340656637}
   _chunkPrefab: {fileID: 1920255810297472, guid: bbc1a29ab843a45ca90106ee3624c315,
     type: 2}
-  _treePrefab: {fileID: 1830830017626952, guid: 001152ddd2ac6414fb2a0ad01bb4e4db,
+  _treePrefab: {fileID: 1111250421836192, guid: 001152ddd2ac6414fb2a0ad01bb4e4db,
     type: 2}
   _stonePrefab: {fileID: 1830830017626952, guid: b02d5a539973d4c92be4da5e8dd28347,
     type: 2}
