@@ -4,7 +4,7 @@ using UnityEngine;
 public class ZombieManager : MonoBehaviour
 {
     public static ZombieManager Instance;
-    
+
     [SerializeField] private Transform _player;
     [SerializeField] private GameObject _zombiePrefab;
     [SerializeField] private int _maxZombies = 200;
@@ -14,6 +14,8 @@ public class ZombieManager : MonoBehaviour
     private readonly List<Transform> _zombies = new List<Transform>();
     private float _timer = 3f;
 
+    private bool _gameOver = false;
+
     private void Awake()
     {
         Instance = this;
@@ -21,6 +23,13 @@ public class ZombieManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            GameOver();
+        }
+
+        if (_gameOver) return;
+        return;
         SpawnZombies();
         RemoveOldZombies();
     }
@@ -35,13 +44,19 @@ public class ZombieManager : MonoBehaviour
         _timer = 1f;
         for (var i = 0; i < _spawnPerSecond; i++)
         {
-            var angle = Random.value * Mathf.PI * 2f;
-            var x = _player.position.x + Mathf.Cos(angle) * _spawnRadius;
-            var z = _player.position.z + Mathf.Sin(angle) * _spawnRadius;
-
-            var zombie = Instantiate(_zombiePrefab, new Vector3(x, 0, z), Quaternion.identity);
-            _zombies.Add(zombie.transform);
+            Spawn(_spawnRadius);
         }
+    }
+
+    private void Spawn(int radius, bool elite = false)
+    {
+        var angle = Random.value * Mathf.PI * 2f;
+        var x = _player.position.x + Mathf.Cos(angle) * radius;
+        var z = _player.position.z + Mathf.Sin(angle) * radius;
+
+        var zombie = Instantiate(_zombiePrefab, new Vector3(x, 0, z), Quaternion.identity);
+        zombie.GetComponent<Zombie>().IsElite = elite;
+        _zombies.Add(zombie.transform);
     }
 
     private void RemoveOldZombies()
@@ -67,4 +82,15 @@ public class ZombieManager : MonoBehaviour
         _zombies.Remove(zombie);
         zombie.GetComponent<Zombie>().Kill();
     }
+
+    public void GameOver()
+    {
+        _gameOver = true;
+        for (var i = 0; i < 100; i++)
+        {
+            Spawn(_spawnRadius, true);
+        }
+    }
+
+    public bool IsGameOver() => _gameOver;
 }

@@ -2,6 +2,8 @@
 
 public class Zombie : MonoBehaviour
 {
+    public bool IsElite;
+    
     [SerializeField] private float _speed = 200f;
 
     private Rigidbody _rigidbody;
@@ -25,7 +27,7 @@ public class Zombie : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var velocity = transform.forward * _speed * Time.deltaTime;
+        var velocity = transform.forward * _speed * Time.deltaTime * (IsElite ? 3 : 1);
         if (_killed)
         {
             velocity = Vector3.zero;

@@ -20,6 +20,13 @@ public class Car : MonoBehaviour
 
     private void Update()
     {
+        if (ZombieManager.Instance.IsGameOver())
+        {
+            _power = 0;
+            _velocity = Vector3.zero;
+            return;
+        }
+
         _power = Input.GetAxis("Vertical") * _speed;
         _velocity = transform.forward * _power;
 
