@@ -11,6 +11,7 @@ public class Level : MonoBehaviour
     [SerializeField] private GameObject _stonePrefab;
     [SerializeField] private GameObject _canisterPrefab;
     [SerializeField] private GameObject _rampPrefab;
+    [SerializeField] private GameObject[] _upgradePrefabs;
     [SerializeField] private int _chunkScale = 32;
 
     private int _currentX = -1, _currentZ = -1;
@@ -68,6 +69,7 @@ public class Level : MonoBehaviour
         PlaceObjects(1, 10, _stonePrefab, chunk);
         PlaceObjects(0, 2, _canisterPrefab, chunk);
         PlaceObjects(0, 2, _rampPrefab, chunk);
+        PlaceObjects(0, 2, _upgradePrefabs[Random.Range(0, _upgradePrefabs.Length)], chunk);
     }
 
     private void RemoveOldChunks()

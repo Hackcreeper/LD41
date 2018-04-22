@@ -10,7 +10,7 @@ namespace Utilities
         {
             foreach (var mesh in GetComponentsInChildren<MeshRenderer>())
             {
-                mesh.material = _materials[Random.Range(0, _materials.Length - 1)];
+                mesh.material = _materials[Random.Range(0, _materials.Length)];
             }
         }
     }
