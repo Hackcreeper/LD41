@@ -6,6 +6,7 @@ public class Zombie : MonoBehaviour
     
     [SerializeField] private float _speed = 200f;
     [SerializeField] private AudioClip _killSound;
+    [SerializeField] private Animator _animator;
 
     private Rigidbody _rigidbody;
     private bool _killed;
@@ -47,13 +48,9 @@ public class Zombie : MonoBehaviour
     {
         _killed = true;
         gameObject.layer = LayerMask.NameToLayer("Dead");
-        transform.localEulerAngles = new Vector3(
-            270,
-            transform.localEulerAngles.y,
-            transform.localEulerAngles.z
-        );
         GetComponent<AudioSource>().clip = _killSound;
         GetComponent<AudioSource>().Play();
+        _animator.SetBool("killed", true);
     }
 
     public bool IsDead() => _killed;
