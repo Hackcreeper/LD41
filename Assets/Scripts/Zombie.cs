@@ -5,6 +5,7 @@ public class Zombie : MonoBehaviour
     public bool IsElite;
     
     [SerializeField] private float _speed = 200f;
+    [SerializeField] private AudioClip _killSound;
 
     private Rigidbody _rigidbody;
     private bool _killed;
@@ -51,6 +52,8 @@ public class Zombie : MonoBehaviour
             transform.localEulerAngles.y,
             transform.localEulerAngles.z
         );
+        GetComponent<AudioSource>().clip = _killSound;
+        GetComponent<AudioSource>().Play();
     }
 
     public bool IsDead() => _killed;
