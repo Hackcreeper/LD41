@@ -7,7 +7,7 @@ namespace UI
     public class Slots : MonoBehaviour
     {
         [SerializeField] private Car _player;
-        
+
         [SerializeField] private RectTransform _slot1;
         [SerializeField] private RectTransform _slot2;
         [SerializeField] private RectTransform _slot3;
@@ -23,6 +23,7 @@ namespace UI
         private void Update()
         {
             HandleKeys();
+            HandleCooldowns();
 
             var slots = Upgrades.Instance.GetSlots();
             if (slots.Count == _cachedLength) return;
@@ -48,8 +49,21 @@ namespace UI
         {
             if (_cachedLength >= 1 && Input.GetKeyDown(KeyCode.Alpha1) && _cooldown1 <= 0)
             {
-                Debug.Log("OK!");
                 _cooldown1 = Execute(Upgrades.Instance.GetSlots()[0]);
+            }
+        }
+
+        private void HandleCooldowns()
+        {
+            if (_cooldown1 > 0) _cooldown1 -= Time.deltaTime;
+            if (_cooldown2 > 0) _cooldown2 -= Time.deltaTime;
+            if (_cooldown3 > 0) _cooldown3 -= Time.deltaTime;
+            
+            if (_cachedLength >= 1)
+            {
+                var cooldown = _slot1.Find("Cooldown");
+                cooldown.gameObject.SetActive(_cooldown1 > 0);
+                cooldown.Find("Cooldown_Text").GetComponent<Text>().text = Mathf.RoundToInt(_cooldown1).ToString();
             }
         }
 
