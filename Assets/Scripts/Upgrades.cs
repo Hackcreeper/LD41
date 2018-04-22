@@ -33,8 +33,11 @@ public class Upgrades : MonoBehaviour
     {
         switch (type)
         {
-            case Type.SAW:
+            case Type.Saw:
                 _player.AddSaw();
+                _slots.Add(type);
+                break;
+            case Type.Nitro:
                 _slots.Add(type);
                 break;
             default:
@@ -51,6 +54,6 @@ public class Upgrades : MonoBehaviour
 
     public enum Type
     {
-        SAW
+        Saw, Nitro
     }
 }

@@ -17,6 +17,9 @@ public class Car : MonoBehaviour
     private float _power;
     private float _sawTimer;
     private bool _enableSaw;
+    private float _nitroTimer;
+    private bool _enableNitro;
+    private float _originalSpeed;
 
     private void Awake()
     {
@@ -39,8 +42,10 @@ public class Car : MonoBehaviour
         }
 
         HandleSaw();
+        HandleNitro();
 
         _power = Input.GetAxis("Vertical") * _speed;
+        if (_enableNitro) _power = _speed;
         _velocity = transform.forward * _power;
 
         if (_velocity.magnitude <= 0f) return;
@@ -86,6 +91,24 @@ public class Car : MonoBehaviour
             _enableSaw = false;
         }
     }
+    
+    private void HandleNitro()
+    {
+        if (!_enableNitro)
+        {
+            _originalSpeed = _speed;
+            return;
+        }
+        
+        _speed = _originalSpeed * 2.5f;
+        
+        _nitroTimer -= Time.deltaTime;
+        if (_nitroTimer <= 0)
+        {
+            _speed = _originalSpeed;
+            _enableNitro = false;
+        }
+    }
 
     private void RotatePlayer()
     {
@@ -125,5 +148,11 @@ public class Car : MonoBehaviour
     {
         _enableSaw = true;
         _sawTimer = 5.5f;
+    }
+
+    public void Nitro()
+    {
+        _enableNitro = true;
+        _nitroTimer = 5.5f;
     }
 }

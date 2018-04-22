@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 135854057212619944}
   - component: {fileID: 114284586962196876}
   m_Layer: 0
-  m_Name: Upgrade-Saw
+  m_Name: Upgrade-Nitro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1a0e60be2a335415095c5ba44d1ac1c3, type: 2}
+  - {fileID: 2100000, guid: 365c26e362ecd47e484605edc7dc68d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5197c63641f241c896eacea38469fe6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
+  _type: 1
 --- !u!135 &135854057212619944
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -136,4 +136,4 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.25
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
