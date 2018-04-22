@@ -54,6 +54,7 @@ public class Upgrades : MonoBehaviour
                 _player.ImproveSaw();
                 break;
             case Type.Nitro:
+                _player.ImproveNitro();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);

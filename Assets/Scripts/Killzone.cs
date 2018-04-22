@@ -14,12 +14,14 @@ public class Killzone : MonoBehaviour
         if ((_front && _player.GetPower() > 0) || _static)
         {
             ZombieManager.Instance.Kill(other.transform);
+            _player.Damage();
             return;
         }
 
         if (!_front && _player.GetPower() < 0)
         {
             ZombieManager.Instance.Kill(other.transform);
+            _player.Damage();
         }
     }
 }

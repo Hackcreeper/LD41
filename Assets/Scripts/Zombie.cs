@@ -8,6 +8,7 @@ public class Zombie : MonoBehaviour
 
     private Rigidbody _rigidbody;
     private bool _killed;
+    private float _damageTimer;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class Zombie : MonoBehaviour
     {
         if (_killed) return;
 
+        _damageTimer -= Time.deltaTime;
         var lookPos = Level.Instance.GetPlayer().position - transform.position;
         lookPos.y = 0;
 
@@ -52,4 +54,16 @@ public class Zombie : MonoBehaviour
     }
 
     public bool IsDead() => _killed;
+
+    private void OnCollisionStay(Collision other)
+    {
+        if (_killed) return;
+        if (!other.gameObject.CompareTag("Player")) return;
+
+        if (_damageTimer <= 0f)
+        {
+            other.gameObject.GetComponent<Car>().Damage();
+            _damageTimer = 2f;
+        }
+    }
 }

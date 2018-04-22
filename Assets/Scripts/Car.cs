@@ -3,6 +3,7 @@
 public class Car : MonoBehaviour
 {
     public const float MaxFuel = 80f;
+    public const int MaxHealth = 100;
 
     [SerializeField] private float _speed = 1000f;
     [SerializeField] private float _rotationSpeed = 80f;
@@ -22,6 +23,7 @@ public class Car : MonoBehaviour
     private float _nitroMaxTime = 5.5f;
     private bool _enableNitro;
     private float _originalSpeed;
+    private int _health = MaxHealth;
 
     private void Awake()
     {
@@ -132,6 +134,7 @@ public class Car : MonoBehaviour
     }
 
     public float GetFuel() => _fuel;
+    public int GetHealth() => _health;
     public float GetPower() => _power;
 
     public void Refuel(int amount = 16)
@@ -165,5 +168,11 @@ public class Car : MonoBehaviour
     public void ImproveNitro()
     {
         _nitroMaxTime += 2f;
+    }
+    
+    public void Damage()
+    {
+        _health -= 2;
+        _health = Mathf.Clamp(_health, 0, MaxHealth);
     }
 }
