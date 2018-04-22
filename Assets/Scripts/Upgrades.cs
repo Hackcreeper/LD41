@@ -5,11 +5,11 @@ using UnityEngine;
 public class Upgrades : MonoBehaviour
 {
     public static Upgrades Instance;
-    
+
     [SerializeField] private Car _player;
 
-    private Dictionary<Type, int> _upgrades = new Dictionary<Type, int>();
-    private List<Type> _slots = new List<Type>();
+    private readonly Dictionary<Type, int> _upgrades = new Dictionary<Type, int>();
+    private readonly List<Type> _slots = new List<Type>();
 
     private void Awake()
     {
@@ -46,6 +46,8 @@ public class Upgrades : MonoBehaviour
     {
         // ...
     }
+    
+    public List<Type> GetSlots() => _slots;
 
     public enum Type
     {
