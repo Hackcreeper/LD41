@@ -11,8 +11,9 @@ public class Car : MonoBehaviour
     [SerializeField] private Transform _saw;
     [SerializeField] private Transform _saw1;
     [SerializeField] private Transform _saw2;
-
+    
     private Rigidbody _rigidbody;
+    private AudioSource _audioSource;
     private Vector3 _velocity;
     private float _fuel = MaxFuel;
     private float _power;
@@ -28,6 +29,7 @@ public class Car : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -41,6 +43,9 @@ public class Car : MonoBehaviour
 
         if (_fuel <= 0f || _health <= 0f)
         {
+            _audioSource.Pause();
+            _power = 0f;
+            _velocity = Vector3.zero;
             ZombieManager.Instance.GameOver();
             return;
         }
@@ -51,10 +56,16 @@ public class Car : MonoBehaviour
         _power = Input.GetAxis("Vertical") * _speed;
         _velocity = transform.forward * _power;
 
-        if (_velocity.magnitude <= 0f) return;
+        if (_velocity.magnitude <= 0f)
+        {
+            _audioSource.Pause();
+            return;
+        }
 
         _fuel -= Time.deltaTime;
         RotatePlayer();
+
+        _audioSource.UnPause();
     }
 
     private void HandleSaw()
