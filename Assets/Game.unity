@@ -142,7 +142,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1340656637}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &65213006
 BoxCollider:
@@ -362,7 +362,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.9999999, z: 1}
   m_Children: []
   m_Father: {fileID: 1340656637}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 9.954, y: 0, z: 0}
 --- !u!108 &159840722
 Light:
@@ -632,7 +632,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1340656637}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &236442846
 BoxCollider:
@@ -688,7 +688,7 @@ Transform:
   m_LocalScale: {x: 0.5000007, y: 0.10000017, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1340656637}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!23 &257013504
 MeshRenderer:
@@ -1824,7 +1824,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 1340656637}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &706680143
 MeshRenderer:
@@ -1895,7 +1895,7 @@ Transform:
   m_LocalScale: {x: 0.5000007, y: 0.10000017, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1340656637}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!23 &775610725
 MeshRenderer:
@@ -2286,7 +2286,7 @@ Transform:
   m_LocalScale: {x: 0.5000007, y: 0.10000017, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1340656637}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!23 &982617040
 MeshRenderer:
@@ -2547,14 +2547,14 @@ Transform:
   - {fileID: 1191691283}
   - {fileID: 1805449292}
   m_Father: {fileID: 1340656637}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1248964160
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1340656637}
     m_Modifications:
     - target: {fileID: 400000, guid: 9b6216abd363447888d8463bc5643d08, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2570,15 +2570,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9b6216abd363447888d8463bc5643d08, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9b6216abd363447888d8463bc5643d08, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9b6216abd363447888d8463bc5643d08, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9b6216abd363447888d8463bc5643d08, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2586,7 +2586,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9b6216abd363447888d8463bc5643d08, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 9b6216abd363447888d8463bc5643d08, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2636,9 +2636,17 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 42bfb57afb28a4a18bd593eb2e5e2739, type: 2}
+    - target: {fileID: 100000, guid: 9b6216abd363447888d8463bc5643d08, type: 3}
+      propertyPath: m_Name
+      value: GFX
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b6216abd363447888d8463bc5643d08, type: 3}
   m_IsPrefabParent: 0
+--- !u!4 &1248964161 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: 9b6216abd363447888d8463bc5643d08, type: 3}
+  m_PrefabInternal: {fileID: 1248964160}
 --- !u!1 &1263460865
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,7 +2675,7 @@ Transform:
   m_LocalScale: {x: 0.5000002, y: 0.10000005, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1340656637}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!23 &1263460867
 MeshRenderer:
@@ -3056,6 +3064,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 190545509}
+  - {fileID: 1248964161}
   - {fileID: 706680142}
   - {fileID: 1263460866}
   - {fileID: 257013503}
