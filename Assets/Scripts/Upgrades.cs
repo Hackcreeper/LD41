@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -47,7 +48,16 @@ public class Upgrades : MonoBehaviour
 
     private void Improve(Type type)
     {
-        // ...
+        switch (type)
+        {
+            case Type.Saw:
+                _player.ImproveSaw();
+                break;
+            case Type.Nitro:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(type), type, null);
+        }
     }
     
     public List<Type> GetSlots() => _slots;

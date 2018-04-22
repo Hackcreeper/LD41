@@ -16,8 +16,10 @@ public class Car : MonoBehaviour
     private float _fuel = MaxFuel;
     private float _power;
     private float _sawTimer;
+    private float _sawMaxTime = 5.5f;
     private bool _enableSaw;
     private float _nitroTimer;
+    private float _nitroMaxTime = 5.5f;
     private bool _enableNitro;
     private float _originalSpeed;
 
@@ -146,12 +148,22 @@ public class Car : MonoBehaviour
     public void StartSaw()
     {
         _enableSaw = true;
-        _sawTimer = 5.5f;
+        _sawTimer = _sawMaxTime;
+    }
+    
+    public void ImproveSaw()
+    {
+        _sawMaxTime += 2f;
     }
 
     public void Nitro()
     {
         _enableNitro = true;
-        _nitroTimer = 5.5f;
+        _nitroTimer = _nitroMaxTime;
+    }
+
+    public void ImproveNitro()
+    {
+        _nitroMaxTime += 2f;
     }
 }
