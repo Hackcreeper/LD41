@@ -39,7 +39,7 @@ public class Car : MonoBehaviour
             return;
         }
 
-        if (_fuel <= 0f)
+        if (_fuel <= 0f || _health <= 0f)
         {
             ZombieManager.Instance.GameOver();
             return;
