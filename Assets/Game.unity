@@ -604,6 +604,8 @@ MonoBehaviour:
     type: 2}
   _rampPrefab: {fileID: 1011335301157236, guid: f4f5340fbfe6e49259ba29fb68b5330e,
     type: 2}
+  _repairSetPrefab: {fileID: 1387779973322856, guid: 79f2b3970581a4471bb43adce171fe04,
+    type: 2}
   _upgradePrefabs:
   - {fileID: 1632967788231936, guid: 972610b707c404ddfbaaea1536b69fd7, type: 2}
   - {fileID: 1632967788231936, guid: c41a740dca15d42a081bbf1c21b92bf9, type: 2}

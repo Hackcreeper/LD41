@@ -175,4 +175,10 @@ public class Car : MonoBehaviour
         _health -= 2;
         _health = Mathf.Clamp(_health, 0, MaxHealth);
     }
+
+    public void Heal()
+    {
+        _health += 15;
+        _health = Mathf.Clamp(_health, 0, MaxHealth);
+    }
 }
