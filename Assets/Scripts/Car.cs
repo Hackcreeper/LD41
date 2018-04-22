@@ -45,7 +45,6 @@ public class Car : MonoBehaviour
         HandleNitro();
 
         _power = Input.GetAxis("Vertical") * _speed;
-        if (_enableNitro) _power = _speed;
         _velocity = transform.forward * _power;
 
         if (_velocity.magnitude <= 0f) return;
@@ -63,22 +62,22 @@ public class Car : MonoBehaviour
                 new Vector3(0, 0, 0),
                 5f * Time.deltaTime
             );
-            
+
             _saw2.transform.localEulerAngles = Vector3.Lerp(
                 _saw2.transform.localEulerAngles,
                 new Vector3(0, 0, 0),
                 5f * Time.deltaTime
             );
-            
+
             return;
         }
-        
+
         _saw1.transform.localEulerAngles = Vector3.Lerp(
             _saw1.transform.localEulerAngles,
             new Vector3(0, 270, 0),
             5f * Time.deltaTime
         );
-            
+
         _saw2.transform.localEulerAngles = Vector3.Lerp(
             _saw2.transform.localEulerAngles,
             new Vector3(0, 90, 0),
@@ -91,7 +90,7 @@ public class Car : MonoBehaviour
             _enableSaw = false;
         }
     }
-    
+
     private void HandleNitro()
     {
         if (!_enableNitro)
@@ -99,9 +98,9 @@ public class Car : MonoBehaviour
             _originalSpeed = _speed;
             return;
         }
-        
+
         _speed = _originalSpeed * 2.5f;
-        
+
         _nitroTimer -= Time.deltaTime;
         if (_nitroTimer <= 0)
         {
