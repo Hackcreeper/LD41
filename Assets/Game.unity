@@ -1053,7 +1053,7 @@ MonoBehaviour:
   _slot2: {fileID: 533414110}
   _slot3: {fileID: 561582184}
   _sawTexture: {fileID: 21300000, guid: 2a1da3ab76d824fe59ba8af16ee07b0a, type: 3}
-  _nitroTexture: {fileID: 21300000, guid: ae9baa25353e446d38e74e6fee5367fc, type: 3}
+  _nitroTexture: {fileID: 21300000, guid: 51afcc0d010674424a7af7b079397f0d, type: 3}
 --- !u!1 &421950225
 GameObject:
   m_ObjectHideFlags: 0
