@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4636589637345440}
   - component: {fileID: 33943792696374314}
   - component: {fileID: 23178664255832266}
+  - component: {fileID: 114894699962620150}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -38,6 +39,7 @@ GameObject:
   - component: {fileID: 4034762775804306}
   - component: {fileID: 135854057212619944}
   - component: {fileID: 114284586962196876}
+  - component: {fileID: 114237659153590152}
   m_Layer: 0
   m_Name: Upgrade-Nitro
   m_TagString: Untagged
@@ -113,6 +115,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1479181264824252}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114237659153590152
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1632967788231936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db42410a72f4f49f0a46af39a45921c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotation: {x: 0, y: 45, z: 0}
 --- !u!114 &114284586962196876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,6 +139,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+--- !u!114 &114894699962620150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1479181264824252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6170d9ba934854aefb30f990dec30c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _factor: 0.008
+  _speed: 2
 --- !u!135 &135854057212619944
 SphereCollider:
   m_ObjectHideFlags: 1

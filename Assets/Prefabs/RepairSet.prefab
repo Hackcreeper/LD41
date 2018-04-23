@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4238148124174454}
   - component: {fileID: 33693526822178628}
   - component: {fileID: 23522080297502896}
+  - component: {fileID: 114393081456748430}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -39,6 +40,7 @@ GameObject:
   - component: {fileID: 65400453644103512}
   - component: {fileID: 114005017099027056}
   - component: {fileID: 114512964063187542}
+  - component: {fileID: 114459373828432932}
   m_Layer: 0
   m_Name: RepairSet
   m_TagString: Untagged
@@ -53,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1228839480244616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 0.4, y: 0.6, z: 0.8}
   m_Children: []
   m_Father: {fileID: 4909893930730158}
@@ -137,6 +139,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6c643ce7d794f90addf1de8898be64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114393081456748430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228839480244616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6170d9ba934854aefb30f990dec30c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _factor: 0.008
+  _speed: 2
+--- !u!114 &114459373828432932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1387779973322856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db42410a72f4f49f0a46af39a45921c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotation: {x: 0, y: 45, z: 0}
 --- !u!114 &114512964063187542
 MonoBehaviour:
   m_ObjectHideFlags: 1
