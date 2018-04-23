@@ -71,7 +71,7 @@ public class Level : MonoBehaviour
         PlaceObjects(0, 2, _canisterPrefab, chunk);
         PlaceObjects(0, 2, _repairSetPrefab, chunk);
         PlaceObjects(0, 2, _rampPrefab, chunk);
-        PlaceObjects(0, 2, _upgradePrefabs[Random.Range(0, _upgradePrefabs.Length)], chunk);
+        PlaceObjects(0, 200, _upgradePrefabs[Random.Range(0, _upgradePrefabs.Length)], chunk);
     }
 
     private void RemoveOldChunks()
