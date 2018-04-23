@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Car : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Car : MonoBehaviour
     [SerializeField] private Transform _saw;
     [SerializeField] private Transform _saw1;
     [SerializeField] private Transform _saw2;
+    [SerializeField] private Text _tutorial;
     
     private Rigidbody _rigidbody;
     private AudioSource _audioSource;
@@ -25,6 +27,7 @@ public class Car : MonoBehaviour
     private bool _enableNitro;
     private float _originalSpeed;
     private int _health = MaxHealth;
+    private bool _moved;
 
     private void Awake()
     {
@@ -34,6 +37,11 @@ public class Car : MonoBehaviour
 
     private void Update()
     {
+        if (_moved)
+        {
+            _tutorial.color = Color.Lerp(_tutorial.color, new Color(1, 1, 1, 0), 5 * Time.deltaTime);
+        }
+        
         if (ZombieManager.Instance.IsGameOver())
         {
             _power = 0;
@@ -62,6 +70,7 @@ public class Car : MonoBehaviour
             return;
         }
 
+        _moved = true;
         _fuel -= Time.deltaTime;
         RotatePlayer();
 
