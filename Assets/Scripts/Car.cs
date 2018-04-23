@@ -72,30 +72,30 @@ public class Car : MonoBehaviour
     {
         if (!_enableSaw)
         {
-            _saw1.transform.localEulerAngles = Vector3.Lerp(
-                _saw1.transform.localEulerAngles,
-                new Vector3(0, 0, 0),
+            _saw1.transform.localPosition = Vector3.Lerp(
+                _saw1.transform.localPosition,
+                new Vector3(.8f, 0, 0),
                 5f * Time.deltaTime
             );
 
-            _saw2.transform.localEulerAngles = Vector3.Lerp(
-                _saw2.transform.localEulerAngles,
-                new Vector3(0, 0, 0),
+            _saw2.transform.localPosition = Vector3.Lerp(
+                _saw2.transform.localPosition,
+                new Vector3(-.8f, 0, 0),
                 5f * Time.deltaTime
             );
 
             return;
         }
 
-        _saw1.transform.localEulerAngles = Vector3.Lerp(
-            _saw1.transform.localEulerAngles,
-            new Vector3(0, 270, 0),
+        _saw1.transform.localPosition = Vector3.Lerp(
+            _saw1.transform.localPosition,
+            new Vector3(0, 0, 0),
             5f * Time.deltaTime
         );
 
-        _saw2.transform.localEulerAngles = Vector3.Lerp(
-            _saw2.transform.localEulerAngles,
-            new Vector3(0, 90, 0),
+        _saw2.transform.localPosition = Vector3.Lerp(
+            _saw2.transform.localPosition,
+            new Vector3(0, 0, 0),
             5f * Time.deltaTime
         );
 

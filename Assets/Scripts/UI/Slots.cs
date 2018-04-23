@@ -87,7 +87,7 @@ namespace UI
             {
                 case Upgrades.Type.Saw:
                     _player.StartSaw();
-                    return 60;
+                    return 5;
                 case Upgrades.Type.Nitro:
                     _player.Nitro();
                     return 30;
