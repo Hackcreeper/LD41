@@ -46,6 +46,8 @@ public class Zombie : MonoBehaviour
 
     public void Kill()
     {
+        if (ZombieManager.Instance.IsGameOver()) return;
+        
         _killed = true;
         gameObject.layer = LayerMask.NameToLayer("Dead");
         GetComponent<AudioSource>().clip = _killSound;
