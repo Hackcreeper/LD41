@@ -49,7 +49,7 @@ public class Car : MonoBehaviour
             ZombieManager.Instance.GameOver();
             return;
         }
-
+    
         HandleSaw();
         HandleNitro();
 

@@ -19,11 +19,11 @@ public class Score : MonoBehaviour
         _timer -= Time.deltaTime;
         if (_timer > 0f) return;
 
-        _value++;
+        _value += 2;
         _timer = 1f;
     }
 
-    public void Increase(int amount = 5)
+    public void Increase(int amount = 10)
     {
         _value += amount;
     }
