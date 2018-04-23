@@ -37,17 +37,17 @@ namespace UI
 
         private void HandleKeys()
         {
-            if (_cachedLength >= 1 && Input.GetKeyDown(KeyCode.Alpha1) && _cooldown1 <= 0)
+            if (_cachedLength >= 1 && (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1)) && _cooldown1 <= 0)
             {
                 _cooldown1 = Execute(Upgrades.Instance.GetSlots()[0]);
             }
 
-            if (_cachedLength >= 2 && Input.GetKeyDown(KeyCode.Alpha2) && _cooldown2 <= 0)
+            if (_cachedLength >= 2 && (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)) && _cooldown2 <= 0)
             {
                 _cooldown2 = Execute(Upgrades.Instance.GetSlots()[1]);
             }
 
-            if (_cachedLength >= 3 && Input.GetKeyDown(KeyCode.Alpha3) && _cooldown3 <= 0)
+            if (_cachedLength >= 3 && (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3)) && _cooldown3 <= 0)
             {
                 _cooldown3 = Execute(Upgrades.Instance.GetSlots()[2]);
             }
