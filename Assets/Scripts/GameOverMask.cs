@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameOverMask : MonoBehaviour
@@ -35,5 +36,10 @@ public class GameOverMask : MonoBehaviour
         _textFade.color = new Color(
             0, 0, 0, fadeAlpha
         );
+
+        if (Input.anyKeyDown)
+        {
+            SceneManager.LoadScene("Game");
+        }
     }
 }
