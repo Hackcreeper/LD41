@@ -103,6 +103,7 @@ public class Car : MonoBehaviour
         if (_sawTimer <= 0)
         {
             _enableSaw = false;
+            _saw.GetComponent<AudioSource>().Stop();
         }
     }
 
@@ -163,6 +164,7 @@ public class Car : MonoBehaviour
     {
         _enableSaw = true;
         _sawTimer = _sawMaxTime;
+        _saw.GetComponent<AudioSource>().Play();
     }
     
     public void ImproveSaw()
